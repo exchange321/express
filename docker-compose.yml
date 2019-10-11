@@ -1,0 +1,17 @@
+version: '3'
+services:
+  local:
+    build: .
+    networks:
+      gateway:
+        aliases:
+          - express
+    env_file: .env
+    ports:
+      - 8888:8888
+    volumes:
+      - .:/var/task
+
+networks:
+  gateway:
+    external: true
